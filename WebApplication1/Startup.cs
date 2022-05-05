@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Controllers;
 using WebApplication1.Models;
 
 namespace WebApplication1
@@ -27,6 +28,8 @@ namespace WebApplication1
         {
             services.AddMvc();
             services.AddDbContext<DataContext>(opt=>opt.UseSqlServer(Configuration.GetConnectionString("SqlServerConnection")));
+            services.AddSingleton<TelegramBot>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
